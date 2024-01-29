@@ -2,7 +2,20 @@
 #include "OrderBook.hpp"
 #include <vector>
 
-static void BM_ProcessUpdate(benchmark::State &state)
+static void BM_ProcessOneUpdate(benchmark::State &state)
+{
+    OrderBook orderBook;
+
+    Update update = {"depthUpdate", "BNBBTC", {{"b", {{0.0024, 10.0}}}, {"a", {{0.0026, 100.0}}}}};
+    for (auto _ : state)
+    {
+        orderBook.processUpdate(update);
+    }
+}
+
+BENCHMARK(BM_ProcessOneUpdate);
+
+static void BM_ProcessUpdates(benchmark::State &state)
 {
     OrderBook orderBook;
 
@@ -22,6 +35,6 @@ static void BM_ProcessUpdate(benchmark::State &state)
     }
 }
 
-BENCHMARK(BM_ProcessUpdate);
+BENCHMARK(BM_ProcessUpdates);
 
 BENCHMARK_MAIN();
