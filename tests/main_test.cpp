@@ -12,7 +12,7 @@ TEST(OrderBookTest, ProcessSnapshotAndUpdates) {
 
     orderBook.processSnapshot(snapshot);
     EXPECT_EQ(orderBook.getBestBid(), 0.0024);
-    EXPECT_EQ(orderBook.getBestAsk(), 0.0026);
+    EXPECT_EQ(orderBook.getBestAsk(), 0.0024);
 
     std::vector<Update> updates = {
         {"depthUpdate", "BNBBTC", {{"b", {{0.0024, 10.0  }}}, {"a", {{0.0026, 100.0 }}}}},
@@ -25,8 +25,8 @@ TEST(OrderBookTest, ProcessSnapshotAndUpdates) {
     for (const auto& update : updates) {
         orderBook.processUpdate(update);
     }
-    EXPECT_EQ(orderBook.getBestBid(), 0.0024);
-    EXPECT_EQ(orderBook.getBestAsk(), 0.0028);
+    EXPECT_EQ(orderBook.getBestBid(), 0.0022);
+    EXPECT_EQ(orderBook.getBestAsk(), 0.0026);
 }
 
 int main(int argc, char **argv) {

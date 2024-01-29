@@ -9,9 +9,28 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(test_basic test_basic.cc)
-
-target_link_libraries(test_basic GTest::gtest_main)
-
 include(GoogleTest)
-gtest_discover_tests(test_basic)
+
+# find_package(benchmark REQUIRED)
+# Add Google Benchmark library
+set(BENCHMARK_ENABLE_TESTING OFF CACHE BOOL "Enable testing of the benchmark library.")
+add_subdirectory(benchmark)
+
+add_executable(MainTest main_test.cpp)
+target_link_libraries(MainTest GTest::gtest_main OrderBook)
+
+set(JUNIT_XML_OUTPUT_FILE "${CMAKE_BINARY_DIR}/test_results.xml")
+add_custom_target(RunMainTest
+                  COMMAND MainTest --gtest_output=xml:${JUNIT_XML_OUTPUT_FILE}
+                  DEPENDS MainTest
+                  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tests)
+
+add_executable(BenchmarkTest benchmark_test.cpp)
+target_link_libraries(BenchmarkTest benchmark OrderBook)                  
+
+add_custom_target(RunBenchmarkTest
+                  COMMAND BenchmarkTest
+                  DEPENDS BenchmarkTest
+                  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tests)
+
+gtest_discover_tests(MainTest)
