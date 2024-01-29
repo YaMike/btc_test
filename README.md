@@ -11,6 +11,6 @@ git clone https://github.com/google/benchmark.git
 ## building && running && testing
 One-liner to build&run&run_main&run_tests
 ```
-(rm -rf build; cmake -B build . ; cd build; make all; make RunMain; make RunMainTest)
+(rm -rf build; cmake -B build . ; cd build; make all; make RunMain; make RunMainTest; make RunBenchmarkTest)
 ```
 
