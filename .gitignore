@@ -42,3 +42,4 @@ Makefile
 lib
 bin
 build
+tests/benchmark
