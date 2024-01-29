@@ -41,3 +41,4 @@ Makefile
 # Other cmake locations
 lib
 bin
+build
