@@ -1,8 +1,7 @@
 # btc_test
 
+One-liner to build&run&run_main&run_tests
 ```
-cmake -B build .
-cd build
-make all
-make run_main
+(rm -rf build; cmake -B build . ; cd build; make all; make RunMain; make RunMainTest)
 ```
+
