@@ -28,3 +28,6 @@ cd btc_test
 (rm -rf build; cmake -B build . ; cd build; make all; make RunMain; make RunMainTest; make RunBenchmarkTest)
 ```
 
+Output:
+* console output for all apps
+* JUnit XML output for gtest tests for smooth integration with Jenkins (BlueOcean view plugin)
