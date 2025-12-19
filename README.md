@@ -36,12 +36,12 @@ Output:
 ┌─(18:16:54)─(michael@prime)─(~/Projects/cpp/binance)
 └─► find -name *.xml
 ./build/test_results.xml
-┌─(18:17:00)─(michael@prime)─(~/Projects/cpp/binance)
+┌─(00:19:27)─(michael@prime)─(~/Projects/cpp/binance)
 └─► cat `find -name *.xml`
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites tests="1" failures="0" disabled="0" errors="0" time="0" timestamp="2024-01-29T16:53:13.054" name="AllTests">
-  <testsuite name="OrderBookTest" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2024-01-29T16:53:13.054">
-    <testcase name="ProcessSnapshotAndUpdates" file="/home/michael/Projects/cpp/binance/tests/main_test.cpp" line="4" status="run" result="completed" time="0" timestamp="2024-01-29T16:53:13.054" classname="OrderBookTest" />
+<testsuites tests="1" failures="0" disabled="0" errors="0" time="0" timestamp="2025-12-20T00:19:02.309" name="AllTests">
+  <testsuite name="OrderBookTest" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2025-12-20T00:19:02.309">
+    <testcase name="ProcessSnapshotAndUpdates" file="/home/michael/Projects/cpp/binance/tests/main_test.cpp" line="4" status="run" result="completed" time="0" timestamp="2025-12-20T00:19:02.309" classname="OrderBookTest" />
   </testsuite>
 </testsuites>
 ┌─(18:31:08)─(michael@prime)─(~/Projects/cpp/binance)
