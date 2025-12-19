@@ -332,72 +332,85 @@ Consolidate compiler generated dependencies of target OrderBook
 [ 80%] Built target OrderBook
 Consolidate compiler generated dependencies of target MemoryTest
 [100%] Built target MemoryTest
-==52984== Massif, a heap profiler
-==52984== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
-==52984== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==52984== Command: MemoryTest
-==52984== 
+==34435== Massif, a heap profiler
+==34435== Copyright (C) 2003-2024, and GNU GPL'd, by Nicholas Nethercote et al.
+==34435== Using Valgrind-3.26.0 and LibVEX; rerun with -h for copyright info
+==34435== Command: MemoryTest
+==34435== 
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
 [----------] 1 test from OrderBookTest
 [ RUN      ] OrderBookTest.ProcessSnapshotAndUpdates
-initial memory: 74668
-after snapshot: 74668
-after updates:  74668
+initial memory: 70800
+after snapshot: 70800
+after updates:  70800
 [       OK ] OrderBookTest.ProcessSnapshotAndUpdates (38 ms)
-[----------] 1 test from OrderBookTest (41 ms total)
+[----------] 1 test from OrderBookTest (40 ms total)
 
 [----------] Global test environment tear-down
 [==========] 1 test from 1 test suite ran. (62 ms total)
 [  PASSED  ] 1 test.
-==52984== 
+==34435== 
 [100%] Built target RunValgrindMemoryTest
 --------------------------------------------------------------------------------
-Command:            tests/MemoryTest
+Command:            MemoryTest
 Massif arguments:   --stacks=yes
-ms_print arguments: massif.out.51480
+ms_print arguments: massif.out.34435
 --------------------------------------------------------------------------------
 
 
     KB
-89.59^                                                                      # 
-     |                                                                      # 
-     |                                                                     @# 
-     |                                                               @     @# 
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     |                                                            @::@:::@:@#:
-     | @@                                                         @::@:::@:@#:
+91.25^                                                                     #  
+     |                                                                     #@ 
+     |                                                                     #@ 
+     |                                                              @@     #@:
+     |                                                              @ :::::#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
+     |                                                              @ : : :#@@
    0 +----------------------------------------------------------------------->Mi
-     0                                                                   2.846
+     0                                                                   2.440
 
-Number of snapshots: 99
- Detailed snapshots: [1, 2, 6, 15, 19, 22, 26, 56, 61, 62, 70, 80, 88, 89, 90, 91, 92, 93 (peak)]
+Number of snapshots: 95
+ Detailed snapshots: [43, 44, 48 (peak), 52, 62, 72, 82, 92]
 
 --------------------------------------------------------------------------------
   n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
 --------------------------------------------------------------------------------
   0              0                0                0             0            0
-  1         67,115              448                0             0          448
+  1          1,398              368                0             0          368
 00.00% (0B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
 
 --------------------------------------------------------------------------------
   n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
 --------------------------------------------------------------------------------
-  2         81,532            7,512                0             0        7,512
+ 43      2,177,803              656                0             0          656
 00.00% (0B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 44      2,229,475           79,880           74,901           187        4,792
+93.77% (74,901B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->92.30% (73,728B) 0x499038E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+| ->92.30% (73,728B) 0x407271E: call_init.part.0 (dl-init.c:74)
+|   ->92.30% (73,728B) 0x4072823: call_init (dl-init.c:120)
+|     ->92.30% (73,728B) 0x4072823: _dl_init (dl-init.c:121)
+|       ->92.30% (73,728B) 0x408C59F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+|         
+->01.47% (1,173B) in 14 places, all below massif's threshold (1.00%)
 
 --------------------------------------------------------------------------------
   n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
