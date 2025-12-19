@@ -1,4 +1,4 @@
-#include <queue>
+#include <map>
 #include <string>
 #include <iostream>
 #include <Update.hpp>
@@ -18,20 +18,11 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const OrderBook& orderBook);
 
 private:
-    void processSide(const std::vector<std::pair<double, double>>& prices, std::unordered_map<double, double>& side);
-    void updateBest();
+    void processSide(const std::vector<std::pair<double, double>>& prices, std::map<double, double>& side);
 
-    std::priority_queue<double>
-    buildMaxBids(const std::unordered_map<double, double>& data) const;
-
-    std::priority_queue<double, std::vector<double>, std::greater<double>>
-    buildMinAsks(const std::unordered_map<double, double>& data) const;
-
-    /* data storage */
-    std::unordered_map<double, double> bids;
-    std::unordered_map<double, double> asks;
-    std::priority_queue<double> max_bids;
-    std::priority_queue<double, std::vector<double>, std::greater<double>> min_asks;
+    /* data storage - maps maintain sorted order automatically */
+    std::map<double, double> bids;  // sorted ascending, use rbegin() for best bid
+    std::map<double, double> asks;  // sorted ascending, use begin() for best ask
 };
 
 #endif /* _ORDER_BOOK_HPP */
